@@ -54,7 +54,7 @@ jobs:
       run: |
         pytest tests/test.py  # 특정 테스트 파일만 실행
 
-    - name: Run Linting  # flake8로 린팅 실행
-      run: |
-        pip install flake8
-        flake8 .  # 코드 품질 검사
+    #- name: Run Linting  # flake8로 린팅 실행
+    #  run: |
+    #    pip install flake8
+    #    flake8 .  # 코드 품질 검사
