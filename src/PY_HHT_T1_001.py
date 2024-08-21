@@ -3,7 +3,9 @@
 # 아래는 `matplotlib`을 사용하여 힐베르트 스펙트럼을 시각화하는 예제 코드입니다.
  
 ### 전체 코드 예제
- 
+
+#pip freeze > requirements.txt
+
 #```python
 
 import numpy as np
@@ -49,7 +51,7 @@ def process_data():
     ax2.set_ylim(0, 50)  # 순간 주파수의 범위는 데이터에 따라 조정 필요
     ax2.set_title("Hilbert Spectrum")
  
-plt.show()
+    plt.show()
  
     while True:
         if not data_queue.empty():
@@ -84,13 +86,18 @@ plt.show()
             plt.pause(0.01)
  
             last_data = new_data
+def main():
  
-# 데이터 수집 스레드 생성 및 시작
-collection_thread = threading.Thread(target=data_collection, daemon=True)
-collection_thread.start()
+    # 데이터 수집 스레드 생성 및 시작
+    collection_thread = threading.Thread(target=data_collection, daemon=True)
+    collection_thread.start()
  
-# 데이터 처리 및 시각화
-process_data()
+    # 데이터 처리 및 시각화
+    process_data()
+
+
+if __name__ == "__main__":
+    main()
 
 #```
  
