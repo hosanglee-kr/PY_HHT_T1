@@ -1,0 +1,23 @@
+{
+  "name": "Python 3",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.11-bullseye",
+  "customizations": {
+    "codespaces": {
+      "openFiles": [
+        "opinion-2-action/app.py"
+      ]
+    },
+    "vscode": {
+      "settings": {
+        "workbench.colorTheme":"Default Dark Modern"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "mechatroner.rainbow-csv"
+      ]
+    }
+  },
+  "updateContentCommand": "pip3 install --user -r requirements.txt; echo '✅ Packages installed and Requirements met'"
+}
