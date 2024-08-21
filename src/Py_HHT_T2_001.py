@@ -6,6 +6,12 @@ from scipy.io import wavfile
 import threading
 import queue
 
+import os
+
+# Print the current working directory
+print("Py_HHT_T2_001.py Current working directory:", os.getcwd())
+
+
 # Settings
 filename = '../src/boat1.wav'  # Path to your WAV file
 buffer_size = 44100  # Buffer size for processing (1 second of data)
