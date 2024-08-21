@@ -8,7 +8,7 @@ EMD-signal==1.6.0
 gitdb==4.0.11
 GitPython==3.1.41
 multiprocess==0.70.16
-numpy==2.1.0
+numpy<2
 pathos==0.3.2
 pox==0.3.4
 ppft==1.7.6.8
