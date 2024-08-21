@@ -5,6 +5,7 @@ on:
   pull_request:
     branches:
       - main  # main 브랜치로의 PR에 대해 실행
+      
   push:
     branches:
       - main  # main 브랜치에 대한 모든 푸시에 대해 실행
