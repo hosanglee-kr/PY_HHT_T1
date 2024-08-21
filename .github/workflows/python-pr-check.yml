@@ -1,0 +1,39 @@
+
+
+name: Python PR Check
+
+on:
+  pull_request:
+    branches:
+      - main  # main 브랜치로의 PR에 대해 실행
+  push:
+    branches:
+      - main  # main 브랜치에 대한 모든 푸시에 대해 실행
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'  # 필요한 Python 버전 지정
+
+    - name: Install dependencies  # requirements.txt 파일에 있는 패키지 설치
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run Tests  # pytest로 tests/test_a.py만 테스트 실행
+      run: |
+        pytest tests/test_a.py  # 특정 테스트 파일만 실행
+
+    - name: Run Linting  # flake8로 린팅 실행
+      run: |
+        pip install flake8
+        flake8 .  # 코드 품질 검사
