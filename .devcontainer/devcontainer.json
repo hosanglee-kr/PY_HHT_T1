@@ -5,7 +5,7 @@
   "customizations": {
     "codespaces": {
       "openFiles": [
-        "opinion-2-action/app.py"
+        "src/PY_HHT_T1_001.py"
       ]
     },
     "vscode": {
