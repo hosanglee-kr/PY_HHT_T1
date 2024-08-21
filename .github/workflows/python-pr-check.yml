@@ -31,7 +31,7 @@ jobs:
 
     - name: Run Tests  # pytest로 tests/test_a.py만 테스트 실행
       run: |
-        pytest tests/test_a.py  # 특정 테스트 파일만 실행
+        pytest tests/test.py  # 특정 테스트 파일만 실행
 
     - name: Run Linting  # flake8로 린팅 실행
       run: |
