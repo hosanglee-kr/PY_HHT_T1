@@ -29,6 +29,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Set PYTHONPATH  # PYTHONPATH 설정
+      run: |
+        echo "PYTHONPATH=$(pwd)/src" >> $GITHUB_ENV
+
+
     - name: Run Tests  # pytest로 tests/test_a.py만 테스트 실행
       run: |
         pytest tests/test.py  # 특정 테스트 파일만 실행
