@@ -7,7 +7,7 @@ import threading
 import queue
 
 # Settings
-filename = './boat1.wav'  # Path to your WAV file
+filename = '../src/boat1.wav'  # Path to your WAV file
 buffer_size = 44100  # Buffer size for processing (1 second of data)
 
 # EEMD object creation
