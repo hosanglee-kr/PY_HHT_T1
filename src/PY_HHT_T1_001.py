@@ -4,7 +4,8 @@
  
 ### 전체 코드 예제
 
-#pip freeze > requirements.txt
+# pip3 install --user -r requirements.txt
+# pip freeze > requirements.txt
 
 #```python
 
