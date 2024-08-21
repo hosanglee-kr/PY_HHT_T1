@@ -22,4 +22,7 @@ def test_main(capsys):
     # Print the captured output for debugging purposes
     print("Captured Output:")
     print(captured.out)
+
+    print("test.py Current working directory:", os.getcwd())
+
     
