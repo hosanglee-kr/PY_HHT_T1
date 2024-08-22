@@ -1,7 +1,7 @@
-flake8==5.0.4  # 린팅 도구
-pytest==7.1.2  # 테스트 도구
+flake8==5.0.4  #
+pytest==7.1.2  # 
 
-matplotlib==3.7.1 --no-binary=matplotlib
+matplotlib==3.7.1 #--no-binary=matplotlib
 
 dill==0.3.8
 EMD-signal==1.6.0

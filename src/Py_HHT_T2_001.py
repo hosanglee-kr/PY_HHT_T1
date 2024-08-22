@@ -8,6 +8,8 @@ import queue
 
 import os
 
+
+
 # Print the current working directory
 print("Py_HHT_T2_001.py Current working directory:", os.getcwd())
 
@@ -15,6 +17,8 @@ print("Py_HHT_T2_001.py Current working directory:", os.getcwd())
 # Settings
 filename = './src/boat1.wav'  # Path to your WAV file
 buffer_size = 44100  # Buffer size for processing (1 second of data)
+
+g_wavfile_SampleRate = 44100
 
 # EEMD object creation
 eemd = EEMD()
@@ -25,7 +29,7 @@ eemd.noise_seed(42)  # Noise seed for reproducibility
 data_queue = queue.Queue()
 
 def read_wav_file():
-    fs, data = wavfile.read(filename)
+    g_wavfile_SampleRate, data = wavfile.read(filename)
     if len(data.shape) > 1:  # If stereo, convert to mono
         data = np.mean(data, axis=1)
     # Split data into chunks
@@ -39,11 +43,11 @@ def process_data():
     plt.ion()  # Interactive mode on
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 10))
     
-    ax1.set_xlim(0, buffer_size / fs)
+    ax1.set_xlim(0, buffer_size / g_wavfile_SampleRate)
     ax1.set_ylim(-1, 1)
     ax1.set_title("Real-time Audio Signal")
     
-    ax2.set_xlim(0, buffer_size / fs)
+    ax2.set_xlim(0, buffer_size / g_wavfile_SampleRate)
     ax2.set_ylim(0, 50)  # Adjust as needed
     ax2.set_title("Hilbert Spectrum")
     
@@ -64,21 +68,21 @@ def process_data():
                 
                 # Hilbert Spectrum calculation and visualization
                 ax1.clear()
-                ax1.plot(np.linspace(0, buffer_size / fs, len(new_data)), new_data, 'b-')
-                ax1.set_xlim(0, buffer_size / fs)
+                ax1.plot(np.linspace(0, buffer_size / g_wavfile_SampleRate, len(new_data)), new_data, 'b-')
+                ax1.set_xlim(0, buffer_size / g_wavfile_SampleRate)
                 ax1.set_ylim(-1, 1)
                 ax1.set_title("Real-time Audio Signal")
 
                 ax2.clear()
-                ax2.set_xlim(0, buffer_size / fs)
+                ax2.set_xlim(0, buffer_size / g_wavfile_SampleRate)
                 ax2.set_ylim(0, 50)  # Adjust as needed
                 ax2.set_title("Hilbert Spectrum")
                 
                 for i in range(imfs.shape[0]):
                     analytic_signal = hilbert(imfs[i])
                     instantaneous_phase = np.unwrap(np.angle(analytic_signal))
-                    instantaneous_frequency = np.diff(instantaneous_phase) / (2.0 * np.pi * (1/fs))
-                    time_axis = np.linspace(0, buffer_size / fs, len(instantaneous_frequency))
+                    instantaneous_frequency = np.diff(instantaneous_phase) / (2.0 * np.pi * (1/g_wavfile_SampleRate))
+                    time_axis = np.linspace(0, buffer_size / g_wavfile_SampleRate, len(instantaneous_frequency))
                     
                     ax2.plot(time_axis, instantaneous_frequency, label=f'IMF {i+1}')
                 
@@ -96,6 +100,7 @@ def process_data():
 def main():
     print("Py_HHT_T2_001.py Current working directory:", os.getcwd())
 
+    
     # Read WAV file and populate queue
     read_wav_file()
     

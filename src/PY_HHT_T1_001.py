@@ -13,6 +13,10 @@
 # python -m pip install sounddevice
 
 
+# pip freeze > requirements_uninstall.txt
+# pip uninstall -r requirements_uninstall.txt
+
+
 #```python
 
 import numpy as np
