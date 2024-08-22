@@ -7,6 +7,10 @@
 # pip3 install --user -r requirements.txt
 # pip freeze > requirements.txt
 
+# python -m pip install sounddevice
+# python -m pip install sounddevice
+
+
 #```python
 
 import numpy as np
