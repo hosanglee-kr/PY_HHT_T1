@@ -13,7 +13,7 @@ print("Py_HHT_T2_001.py Current working directory:", os.getcwd())
 
 
 # Settings
-filename = '../src/boat1.wav'  # Path to your WAV file
+filename = './src/boat1.wav'  # Path to your WAV file
 buffer_size = 44100  # Buffer size for processing (1 second of data)
 
 # EEMD object creation
@@ -97,10 +97,10 @@ def main():
     print("Py_HHT_T2_001.py Current working directory:", os.getcwd())
 
     # Read WAV file and populate queue
-    ## read_wav_file()
+    read_wav_file()
     
     # Start data processing and visualization
-    ## process_data()
+    process_data()
 
 if __name__ == "__main__":
     main()

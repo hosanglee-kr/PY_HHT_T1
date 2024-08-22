@@ -5,6 +5,8 @@
 ### 전체 코드 예제
 
 # pip3 install --user -r requirements.txt
+
+# pip3 install -r requirements.txt
 # pip freeze > requirements.txt
 
 # python -m pip install sounddevice
