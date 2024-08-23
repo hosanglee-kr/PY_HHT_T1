@@ -11,7 +11,7 @@ import os
 print("Py_HHT_T2_001.py Current working directory:", os.getcwd())
 
 # Settings
-filename = './src/boat1.wav'  # Path to your WAV file
+filename = './src/Drone3.wav'  # Path to your WAV file
 buffer_size = 44100  # Buffer size for processing (1 second of data)
 g_wavfile_SampleRate = 44100
 
