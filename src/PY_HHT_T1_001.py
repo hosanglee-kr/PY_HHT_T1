@@ -5,7 +5,17 @@
 ### 전체 코드 예제
 
 # pip3 install --user -r requirements.txt
+
+# pip3 install -r requirements.txt
 # pip freeze > requirements.txt
+
+# python -m pip install sounddevice
+# python -m pip install sounddevice
+
+
+# pip freeze > requirements_uninstall.txt
+# pip uninstall -r requirements_uninstall.txt
+
 
 #```python
 
